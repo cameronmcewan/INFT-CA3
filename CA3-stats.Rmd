@@ -1,0 +1,20 @@
+---
+title: "INFT-CA3-stats"
+author: "Cameron McEwan"
+date: "24/11/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r} 
+library(boot)
+set.seed(1)
+compute_median <- function(df,indicies,col_name){
+  sub_sample <- df%>% slice(indicies) %>% (all_of(col_name)) # extract subsample
+return(median(sub_samplena.rm=1)) # return median
+}
+
+results <- boot(data=geyser, statistic=compute_median, col_name=compute_median)
+```
